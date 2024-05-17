@@ -4,6 +4,7 @@ import (
     "fmt"
     "net/http"
     . "wendi-go/pages"
+    . "wendi-go/constants"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
         http.Redirect(w, r, "/404", http.StatusSeeOther)
     })
 
-    fmt.Println("Starting server at port 8080")
+    fmt.Printf("Starting %s at port 8080", FRAMEWORK)
     if err := http.ListenAndServe(":8080", nil); err != nil {
         fmt.Println(err)
     }
