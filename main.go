@@ -2,30 +2,10 @@ package main
 
 import (
     "fmt"
-    "html/template"
     "net/http"
-    "path/filepath"
+    . "wendi-go/includes"
 )
 
-// PageData holds data to be passed to templates
-type PageData struct {
-    Title   string
-    Content string
-}
-
-// renderTemplate renders the specified template with the provided data
-func renderTemplate(w http.ResponseWriter, tmpl string, data *PageData) {
-    tmplPath := filepath.Join("templates", tmpl+".html")
-    templates, err := template.ParseFiles(tmplPath, "templates/header.html", "templates/footer.html")
-    if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
-        return
-    }
-    err = templates.ExecuteTemplate(w, tmpl+".html", data)
-    if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
-    }
-}
 
 // homeHandler handles requests to the home page
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -33,7 +13,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
         Title:   "Home Page",
         Content: "Welcome to the home page!",
     }
-    renderTemplate(w, "index", data)
+    RenderTemplate(w, "index", data)
 }
 
 // aboutHandler handles requests to the about page
@@ -42,7 +22,7 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
         Title:   "About Page",
         Content: "Welcome to the about page!",
     }
-    renderTemplate(w, "about", data)
+    RenderTemplate(w, "about", data)
 }
 
 // catchAllHandler handles requests to any other pages
@@ -51,7 +31,7 @@ func catchAllHandler(w http.ResponseWriter, r *http.Request) {
         Title:   "404 Page",
         Content: "Sorry, the page you are looking for does not exist.",
     }
-    renderTemplate(w, "404", data)
+    RenderTemplate(w, "404", data)
 }
 
 func main() {
