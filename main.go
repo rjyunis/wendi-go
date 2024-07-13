@@ -8,9 +8,14 @@ import (
 )
 
 func main() {
+
+    // Page handlers
     http.HandleFunc("/", HomeHandler)        // Home page
     http.HandleFunc("/about", AboutHandler)  // About page
     http.HandleFunc("/404", CatchAllHandler) // Catch-all for other pages
+
+    // Exernal Resource Handlers
+    http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 
     // Define the catch-all handler last to ensure it catches any unhandled routes
     http.HandleFunc("/{path}", func(w http.ResponseWriter, r *http.Request) {
