@@ -1,6 +1,23 @@
 html, body {
-  width: 100vw;
-  height: 100vh;
   background: rgb(64,91,102);
   background: linear-gradient(145deg, rgba(64,91,102,1) 0%, rgba(193,218,214,1) 100%);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.textContent {
+  height: 75vh;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(10, 10, 10, 0.15);
+  border-style: solid;
+  border-color: rgb(125, 125, 125);
+  border-radius: 10px;
+  border-width: 2px;
+  color: rgb(250, 250, 250);
+}
+
+footer {
+  text-align: center;
 }
