@@ -16,6 +16,8 @@ func main() {
 
     // Exernal Resource Handlers
     http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+    http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("img"))))
+    http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
 
     // Define the catch-all handler last to ensure it catches any unhandled routes
     http.HandleFunc("/{path}", func(w http.ResponseWriter, r *http.Request) {

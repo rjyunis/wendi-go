@@ -9,7 +9,6 @@ import (
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
     data := &PageData{
         Title:   "Home Page",
-        Content: "Welcome to the home page!",
     }
     RenderTemplate(w, "index", data)
 }

@@ -1,5 +1,27 @@
 {{ template "header.html" . }}
-<div class="textContent">
-    <p>{{ .Content }}</p>
+<div id="mainMenu">
+    <a href="/about">
+        <div class="mainMenuItem">
+            <img class="bgImg" src="/img/menubg.png" />
+            <img class="mainMenuThumb" src="/img/aboutus_thumb.jpg" />
+            <p> About </p>
+        </div>
+    </a>
+
+    <a href="/tables">
+        <div class="mainMenuItem">
+            <img class="bgImg" src="/img/menubg.png" />
+            <img class="mainMenuThumb" src="/img/ext_thumb.png" />
+            <p> Table Data </p>
+        </div>
+    </a>
+
+    <a href="/plots">
+        <div class="mainMenuItem">
+            <img class="bgImg" src="/img/menubg.png" />
+            <img class="mainMenuThumb" src="/img/old_thumb.png" />
+            <p> Plots </p>
+        </div>
+    </a>
 </div>
 {{ template "footer.html" . }}
